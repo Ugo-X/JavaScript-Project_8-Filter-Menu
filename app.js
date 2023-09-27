@@ -1,4 +1,3 @@
-
 // normally you would get this data by setting up an ajax request(getting it from an external API), so you wont have to hard-code all these values
 // menu items
 const menu = [
@@ -118,21 +117,50 @@ const menu = [
     id: 15,
     title: "Salad",
     category: "dinner",
+    price: 9.99,
     img: "./images/dish-16-Salad-dinner.jpg",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
   },
   {
-    id: 1,
+    id: 16,
     title: "crust Hamburger",
     category: "breakfast",
+    price: 13.99,
     img: "./images/Dish-1.jpg",
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
   },
 ];
 
-
-// we select the secction center because the section center is the parent div for all our items that we are going to dynamically access from our above menu array and fill up our page.
-const sectionCenter = document.querySelector('.section-center')
+// we select the secction center because the section center is the parent div for all our items that we are going to dynamically access from our above menu array and fill up our page. So basically, after accessing our array anc getting this object we want to place them somewher, that is where our section center div comes in.
+const sectionCenter = document.querySelector(".section-center");
 
 // when our page loads we will want to access all our items and use them to populate our page
-window.addEventListener('DOMContentLoaded', function ()  {})
+// # Map Function >>> always returns an array, always depends on the parent or original array and cannot change the array length like the filter method.
+// so yeah you can modify the content of the original array.
+// also with the map it effects changes to all members of the array.
+window.addEventListener("DOMContentLoaded", function (item) {
+ let showMenu = menu.map(function(item){
+  return `      <!-- item 1-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src=" ${item.img} " class="img photo" alt=" ${item.title} ">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5> ${item.title} </h5>
+<span class="price"> ${item.price} </span>
+  </header>
+  <p class="item-text">${item.text} </p>
+</div>
+</article>
+          <!-- end of item 1 -->`;
+ })
+ // to join them into one string.
+ showMenu = showMenu.join('')
+ console.log(showMenu);
+ sectionCenter.innerHTML = showMenu.join("");
+});
+
+// up above in the map method we returned the changed structure of the individual item, then we accessed each item data from our array and joined it, placing each menu item inside the section center
+

@@ -1,0 +1,305 @@
+Menu Project
+
+>>>> DOMContentLoaded
+
+first of all we have an array with all the values we want to display when we load the page. Normally we would use an external api for all this data by setting up an ajx request but here we are hardcoding the values so that we learn how the fundamentals.
+Fisrt thing we did here was to select the section Center because the section center is the parent of each individual menu item and hence is where we are going to place the changed structure of our html menu item.
+
+2>>> we then invoked the DOMContentLoaded event listener and invoked it on the windows(no the document, because you can also do this) 
+
+3 >>> we gave it a paremeter of  item and moved on to assign our map function on our menu array to a variable of showMenu because the Map function will return a new array.
+
+4>>> in our map method logic body, after giving our paremter a name of item , we first returned our regular menu item structure from our html document and then went ahead to replace the individual details with the for instance, ""item.img, item.title etc (remember that this title, img etc are being referenced from our menu array above.)
+
+5 >>> we then used the following syntax to place this structure change, into our previously selectced sectionCenter
+"sectionCenter.innerHtml = showMenu.join('') (we put the strings inside to avoid commas)
+
+#With the map method we are going to be returning the number of items we have in our array menu array or any array at all and then we changing the the structure of this 16 items  by putting them inside our regular html structure and then placing them inside our sectionCenter on the page.
+
+#### NOW NOTE
+>>>>>when you are copying your regular html structure and returning it in our map array method, make sure to retain all the classes even within the map method, if not the css will be tampered with and also make sure to use temperate literals
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///// These are the html values if you do not want to use the DOMContentLoaded event listener
+          <!-- item 2-->
+ <article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-1.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>crust Hamburger</h5>
+<span class="price">$13.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 2 -->
+
+          <!-- item 3-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-2-Prawn-Pasta.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>Prawn Pasta</h5>
+<span class="price"> $15.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 3 -->
+          <!-- item 4-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-3-Bowl-Ice-Cream.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>bowl ice-cream</h5>
+<span class="price"> $18.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 4 -->
+
+       
+          <!-- item 5-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-4-Blueberries-Pancake.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>BlueBerry Pancake</h5>
+<span class="price"> $13.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 5 -->
+ 
+          <!-- item 6-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-6-Egg-lavana.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>Egg lavana</h5>
+<span class="price"> $19.99 </span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 6 -->
+          <!-- item 7-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-7-Pork-Pizza-Lunch.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>Pork pizza</h5>
+<span class="price"> $24.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 7 -->
+
+          <!-- item 8-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-8-Pumpkin-soup-Lunch.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>pumpkin soup</h5>
+<span class="price"> $19.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 8 -->
+          <!-- item 9-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-9-Curry-Food-Lunch.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>curry food</h5>
+<span class="price"> $21.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 9 -->
+          <!-- item 10-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-10-Ramen-Soup-Lunch.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>Ramen soup</h5>
+<span class="price"> $24.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 10 -->
+          <!-- item 11-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-11-Roasted-Steak-Lunch.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>Roasted Steak</h5>
+<span class="price"> $34.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 11 -->
+          <!-- item 12-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-12-Gellato-Pineaple-specials.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>gellato pineaple</h5>
+<span class="price"> $17.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 12 -->
+          <!-- item 13-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-13-Mango-Nature-specials.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>Mango Nature</h5>
+<span class="price"> $15.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 13 -->
+          <!-- item 14-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-14-Le-Tropicales-specials.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>le tropicales</h5>
+<span class="price"> $25.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 14 -->
+          <!-- item 15-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/Dish-15-Kagyana-Strapatsada-dinner.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>Kagyana-Strapatsada</h5>
+<span class="price"> $25.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 15 -->
+          <!-- item 16-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="./images/dish-16-Salad-dinner.jpg" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>Salad</h5>
+<span class="price"> $9.99</span>
+  </header>
+  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
+</div>
+</article>
+          <!-- end of item 16-->
+
+
+
