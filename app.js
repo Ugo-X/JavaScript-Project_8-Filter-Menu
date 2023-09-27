@@ -131,16 +131,52 @@ const menu = [
   },
 ];
 
-// we select the secction center because the section center is the parent div for all our items that we are going to dynamically access from our above menu array and fill up our page. So basically, after accessing our array anc getting this object we want to place them somewher, that is where our section center div comes in.
+// we select the section center because the section center is the parent div for all our items that we are going to dynamically access from our above menu array and fill up our page. So basically, after accessing our array anc getting this object we want to place them somewher, that is where our section center div comes in.
 const sectionCenter = document.querySelector(".section-center");
+
+const btns = document.querySelectorAll(".filter-btn");
 
 // when our page loads we will want to access all our items and use them to populate our page
 // # Map Function >>> always returns an array, always depends on the parent or original array and cannot change the array length like the filter method.
 // so yeah you can modify the content of the original array.
 // also with the map it effects changes to all members of the array.
+
+// load Items
 window.addEventListener("DOMContentLoaded", function (item) {
- let showMenu = menu.map(function(item){
-  return `      <!-- item 1-->
+showMenuItems(menu)
+});
+
+
+
+// filter items 
+btns.forEach(function(btn){
+btn.addEventListener('click', function(evt){
+ const category = evt.currentTarget.dataset.id;
+
+ const menuCategory = menu.filter(function(menuItem){
+  // so here we want to say that if the category (whether breakfast, lunch, dinner etc ) is contained in our menuItem then we will return that menuItem
+if(menuItem.category === category){
+ return menuItem
+}
+ })
+ if (category === 'all'){
+  return showMenuItems(menu)
+ }
+ else{
+  // here we are calling this function on our filtered array that has a condition in the logic body
+  return showMenuItems(menuCategory)
+ }
+
+})
+})
+
+
+
+
+// General function
+function showMenuItems (menuItems){
+  let showMenu = menuItems.map(function (item) {
+    return `      <!-- item 1-->
 <article class="menu-item">
 <div class="menu-img">
   <img src=" ${item.img} " class="img photo" alt=" ${item.title} ">
@@ -155,16 +191,15 @@ window.addEventListener("DOMContentLoaded", function (item) {
 </div>
 </article>
           <!-- end of item 1 -->`;
- })
+  });
 
 
- console.log(showMenu);
- sectionCenter.innerHTML = showMenu.join("");
-});
-
-// up above in the map method we returned the changed structure of the individual item, then we accessed each item data from our array and joined it, placing each menu item inside the section center
+  sectionCenter.innerHTML = showMenu.join("");
+}// up above in the map method we returned the changed structure of the individual item, then we accessed each item data from our array and joined it, placing each menu item inside the section center
 
 
 
-// 
+
+// the logic is that when we click a certain button we want to diplay a certain category, whether all of them, breakfast, lunch, dinner or our special category.
+
 

@@ -2,10 +2,10 @@ Menu Project
 
 >>>> DOMContentLoaded
 
-first of all we have an array with all the values we want to display when we load the page. Normally we would use an external api for all this data by setting up an ajx request but here we are hardcoding the values so that we learn how the fundamentals.
-Fisrt thing we did here was to select the section Center because the section center is the parent of each individual menu item and hence is where we are going to place the changed structure of our html menu item.
+first of all we have an array with all the values we want to display when we load the page. Normally we would use an external api for all this data by setting up an ajx request but here we are hardcoding the values so that we learn the  how fundamentals.
+First thing we did here was to select the section Center because the section center is the parent of each individual menu item and hence is where we are going to place the changed structure of our html menu item.
 
-2>>> we then invoked the DOMContentLoaded event listener and invoked it on the windows(no the document, because you can also do this) 
+2>>> we then invoked the DOMContentLoaded event listener and invoked it on the windows(not the document, because you can also do this) 
 
 3 >>> we gave it a paremeter of  item and moved on to assign our map function on our menu array to a variable of showMenu because the Map function will return a new array.
 
@@ -27,8 +27,7 @@ Fisrt thing we did here was to select the section Center because the section cen
 Now the next thing we are going to do is to refactor our code by placing our map method into a function, as we going to be performing other  operations and do not want to repeat our code over and over again. After refactoring, we can simply pass in our function into the DOMContentLoaded event and2 other places
 #when we pass our map method into our showMenuItems function, we are going to change the menu.map to the parameter of the showMenuItems function so that we can pass in other arguments when working with other methods but remember that when we call our function in the DOMContentLoaded event listener, we have to pass in our menu array as the argument with the values.
 
-
-
+#dataset can be added to all elements and the way it works, on the element we can add an attribute with a prefix data followed by a hyphen and a name " data-id = 'all' "
 
 
 
