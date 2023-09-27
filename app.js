@@ -164,3 +164,7 @@ window.addEventListener("DOMContentLoaded", function (item) {
 
 // up above in the map method we returned the changed structure of the individual item, then we accessed each item data from our array and joined it, placing each menu item inside the section center
 
+
+
+// 
+
