@@ -156,8 +156,8 @@ window.addEventListener("DOMContentLoaded", function (item) {
 </article>
           <!-- end of item 1 -->`;
  })
- // to join them into one string.
- showMenu = showMenu.join('')
+
+
  console.log(showMenu);
  sectionCenter.innerHTML = showMenu.join("");
 });
