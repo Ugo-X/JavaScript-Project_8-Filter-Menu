@@ -22,8 +22,9 @@ Fisrt thing we did here was to select the section Center because the section cen
 
 
 
+#REFACTORING 
 
-
+Now the next thing we are going to do is to refactor our code by placing our map method into a function, as we going to be performing other  operations and do not want to repeat our code over and over again. After refactoring, we can simply pass in our function into the DOMContentLoaded event and2 other places
 
 
 
