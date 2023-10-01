@@ -29,6 +29,12 @@ Now the next thing we are going to do is to refactor our code by placing our map
 
 #dataset can be added to all elements and the way it works, on the element we can add an attribute with a prefix data followed by a hyphen and a name " data-id = 'all' "
 
+after this, we assign the evt.currentTarget.dataset.id to a a variable ; category and then we create a a variable; menu category that filters the menu array with the logic that if the menuItem.category is equals to the dataset category button then we will return that array.
+>>> we had the general  class so we said that if the dataset category is equals to the all string id, we will call our showMenuItems function on the menu item, which will display everything we have in the menu array placed in the sectionCenter.
+then we create an else statment where barring this we are going to return our showMenuItems function on our filtered array.
+
+###Now we need to add our button/categories dynamically.
+we want to add the buttons dynamically in a way that when we add a new category, we wont need to go back to our html document and add that button, but as soon as the category is added, the button will be added.
 
 
 
@@ -57,6 +63,236 @@ Now the next thing we are going to do is to refactor our code by placing our map
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const sectionCenter = document.querySelector('.section-center')
+const filterBtns = document.querySelectorAll('.filter-btn')
+
+window.addEventListener('DOMContentLoaded', function (item){
+  showMenuItems(menu)
+})
+
+
+
+
+filterBtns.forEach(function (btn) {
+  btn.addEventListener('click', function(evt){
+category = evt.currentTarget.dataset.id
+
+const menuCategory = menu.filter(function(menuItem){
+if(menuItem.category === category){
+  return menuItem
+}
+})
+
+if(category === 'all'){
+  return showMenuItems(menu)
+}
+else{
+  showMenuItems(menuCategory)
+}
+
+
+  })
+
+});
+
+
+
+function showMenuItems (menuItems){
+  let showMenu = menuItems.map(function (menuItem) {
+    return `       <!-- item 1-->
+<article class="menu-item">
+<div class="menu-img">
+  <img src="${menuItem.img}" class="img photo" alt="">
+</div>
+<!-- item info -->
+<div class="item-info">
+  <header >
+<h5>${menuItem.title} </h5>
+<span class="price"> ${menuItem.price} </span>
+  </header>
+  <p class="item-text"> ${menuItem.text} </p>
+</div>
+</article>
+         `;
+  });
+  sectionCenter.innerHTML = showMenu.join("");
+
+}
 
 
 

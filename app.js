@@ -1,3 +1,4 @@
+
 // normally you would get this data by setting up an ajax request(getting it from an external API), so you wont have to hard-code all these values
 // menu items
 const menu = [
@@ -131,6 +132,7 @@ const menu = [
   },
 ];
 
+
 // we select the section center because the section center is the parent div for all our items that we are going to dynamically access from our above menu array and fill up our page. So basically, after accessing our array anc getting this object we want to place them somewher, that is where our section center div comes in.
 const sectionCenter = document.querySelector(".section-center");
 
@@ -143,38 +145,35 @@ const btns = document.querySelectorAll(".filter-btn");
 
 // load Items
 window.addEventListener("DOMContentLoaded", function (item) {
-showMenuItems(menu)
+  showMenuItems(menu);
+
+  // here we want to return buttons for each category created and we want to only return the unique categories such as breakfast, lunch, dinner etc. Also if you notice we start with an initial value of an array and all string since it is not part of our categories but we want to be able to access all our menuitems
+const categories = menu.reduce(function(){},[])
+
 });
 
+// filter items
+btns.forEach(function (btn) {
+  btn.addEventListener("click", function (evt) {
+    const category = evt.currentTarget.dataset.id;
 
-
-// filter items 
-btns.forEach(function(btn){
-btn.addEventListener('click', function(evt){
- const category = evt.currentTarget.dataset.id;
-
- const menuCategory = menu.filter(function(menuItem){
-  // so here we want to say that if the category (whether breakfast, lunch, dinner etc ) is contained in our menuItem then we will return that menuItem
-if(menuItem.category === category){
- return menuItem
-}
- })
- if (category === 'all'){
-  return showMenuItems(menu)
- }
- else{
-  // here we are calling this function on our filtered array that has a condition in the logic body
-  return showMenuItems(menuCategory)
- }
-
-})
-})
-
-
-
+    const menuCategory = menu.filter(function (menuItem) {
+      // so here we want to say that if the category (whether breakfast, lunch, dinner etc ) is contained in our menuItem category then we will return that menuItem
+      if (menuItem.category === category) {
+        return menuItem;
+      }
+    });
+    if (category === "all") {
+      return showMenuItems(menu);
+    } else {
+      // here we are calling this function on our filtered array that has a condition in the logic body
+      return showMenuItems(menuCategory);
+    }
+  });
+});
 
 // General function
-function showMenuItems (menuItems){
+function showMenuItems(menuItems) {
   let showMenu = menuItems.map(function (item) {
     return `      <!-- item 1-->
 <article class="menu-item">
@@ -193,13 +192,29 @@ function showMenuItems (menuItems){
           <!-- end of item 1 -->`;
   });
 
-
   sectionCenter.innerHTML = showMenu.join("");
-}// up above in the map method we returned the changed structure of the individual item, then we accessed each item data from our array and joined it, placing each menu item inside the section center
-
-
-
+} // up above in the map method we returned the changed structure of the individual item, then we accessed each item data from our array and joined it, placing each menu item inside the section center
 
 // the logic is that when we click a certain button we want to diplay a certain category, whether all of them, breakfast, lunch, dinner or our special category.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
