@@ -49,251 +49,230 @@ we want to add the buttons dynamically in a way that when we add a new category,
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const sectionCenter = document.querySelector('.section-center')
-const filterBtns = document.querySelectorAll('.filter-btn')
-
-window.addEventListener('DOMContentLoaded', function (item){
-  showMenuItems(menu)
-})
-
-
-
-
-filterBtns.forEach(function (btn) {
-  btn.addEventListener('click', function(evt){
-category = evt.currentTarget.dataset.id
-
-const menuCategory = menu.filter(function(menuItem){
-if(menuItem.category === category){
-  return menuItem
-}
-})
-
-if(category === 'all'){
-  return showMenuItems(menu)
-}
-else{
-  showMenuItems(menuCategory)
-}
-
-
-  })
-
+>>>BELOW IS OUR JAVASCRIPT CODE AND THE NOTES FOLLOWING. it<<<<<<
+
+
+
+
+// normally you would get this data by setting up an ajax request(getting it from an external API), so you wont have to hard-code all these values
+// menu items
+const menu = [
+  {
+    id: 1,
+    title: "crust Hamburger",
+    category: "breakfast",
+    price: 13.99,
+    img: "./images/Dish-1.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+
+  {
+    id: 2,
+    title: "Prawn Pasta",
+    category: "breakfast",
+    price: 15.99,
+    img: "./images/Dish-2-Prawn-Pasta.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 3,
+    title: "bowl ice-cream",
+    category: "specials",
+    price: 18.99,
+    img: "./images/Dish-3-Bowl-Ice-Cream.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 4,
+    title: "BlueBerry Pancake",
+    category: "breakfast",
+    price: 13.99,
+    img: "./images/Dish-4-Blueberries-Pancake.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 5,
+    title: "Egg lavana",
+    category: "breakfast",
+    price: 19.99,
+    img: "./images/Dish-6-Egg-lavana.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 6,
+    title: "Pork pizza",
+    category: "lunch",
+    price: 24.99,
+    img: "./images/Dish-7-Pork-Pizza-Lunch.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 7,
+    title: "Pumpkin Soup",
+    category: "lunch",
+    price: 19.99,
+    img: "./images/Dish-8-Pumpkin-soup-Lunch.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 8,
+    title: "Curry Food",
+    category: "lunch",
+    price: 21.99,
+    img: "./images/Dish-9-Curry-Food-Lunch.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 9,
+    title: "Ramen Soup",
+    category: "lunch",
+    price: 24.99,
+    img: "./images/Dish-10-Ramen-Soup-Lunch.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 10,
+    title: "Roasted Steak",
+    category: "lunch",
+    price: 34.99,
+    img: "./images/Dish-11-Roasted-Steak-Lunch.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 11,
+    title: "Gellato Pineaple",
+    category: "specials",
+    price: 17.99,
+    img: "./images/Dish-12-Gellato-Pineaple-specials.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 12,
+    title: "Mango Nature",
+    category: "specials",
+    price: 15.99,
+    img: "./images/Dish-13-Mango-Nature-specials.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 13,
+    title: "le Tropicales",
+    category: "specials",
+    price: 25.99,
+    img: "./images/Dish-14-Le-Tropicales-specials.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 14,
+    title: "Kagyana Strapatsada",
+    category: "dinner",
+    price: 25.99,
+    img: "./images/Dish-15-Kagyana-Strapatsada-dinner.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 15,
+    title: "Salad",
+    category: "dinner",
+    price: 9.99,
+    img: "./images/dish-16-Salad-dinner.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+  {
+    id: 16,
+    title: "crust Hamburger",
+    category: "breakfast",
+    price: 13.99,
+    img: "./images/Dish-1.jpg",
+    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
+  },
+];
+
+// we select the section center because the section center is the parent div for all our items that we are going to dynamically access from our above menu array and fill up our page. So basically, after accessing our array anc getting this object we want to place them somewher, that is where our section center div comes in.
+const sectionCenter = document.querySelector(".section-center");
+const btnContainer = document.querySelector(".btn-container");
+
+const btns = document.querySelectorAll(".filter-btn");
+
+// when our page loads we will want to access all our items and use them to populate our page
+// # Map Function >>> always returns an array, always depends on the parent or original array and cannot change the array length like the filter method.
+// so yeah you can modify the content of the original array.
+// also with the map it effects changes to all members of the array.
+
+// load Items
+window.addEventListener("DOMContentLoaded", function (item) {
+  showMenuItems(menu);
+
+  // here we want to return buttons for each category created and we want to only return the unique categories such as breakfast, lunch, dinner etc. Also if you notice we start with an initial value of an array and all string since it is not part of our categories but we want to be able to access all our menuitems
+  const categories = menu.reduce(
+    function (acc, currItem) {
+      // we check to see if the currItem category is in our array that we are returning down below.
+      // Then in a lame man's language, we set up a logic that says if the array we are returning down there which is represented by our total parameter namely acc(i.e if the acc array ) does not contain the category of each individual item(i.e the individual objects in the menu array), we will add it but if it is already contained inside the array we wont need to add it again, we will just return it.
+      // also note that we begin with an  initial value of an array because we are basically returnng an array. an inside that array we are going to have a value of 'all btn' since we want to have a btn that shows all the items
+      if (!acc.includes(currItem.category)) {
+        acc.push(currItem.category);
+      }
+      return acc;
+    },
+    ["all"]
+  );
+
+
+
+  // so many notes yeah i know. well here we want to select all our unique categories and return them as buttons.
+  const categoryBtn = categories.map(function (category) {
+    return `<button type="button" class="btn filter-btn one" data-id="${category}"> ${category} </button>`;
+  });
+
+  btnContainer.innerHTML = categoryBtn.join("");
 });
 
+// filter items
+btns.forEach(function (btn) {
+  btn.addEventListener("click", function (evt) {
+    const category = evt.currentTarget.dataset.id;
 
+    const menuCategory = menu.filter(function (menuItem) {
+      // so here we want to say that if the category (whether breakfast, lunch, dinner etc ) is contained in our menuItem category then we will return that menuItem
+      if (menuItem.category === category) {
+        return menuItem;
+      }
+    });
+    if (category === "all") {
+      return showMenuItems(menu);
+    } else {
+      // here we are calling this function on our filtered array that has a condition in the logic body
+      return showMenuItems(menuCategory);
+    }
+  });
+});
 
-function showMenuItems (menuItems){
-  let showMenu = menuItems.map(function (menuItem) {
-    return `       <!-- item 1-->
+// General function
+function showMenuItems(menuItems) {
+  let showMenu = menuItems.map(function (item) {
+    return `      <!-- item 1-->
 <article class="menu-item">
 <div class="menu-img">
-  <img src="${menuItem.img}" class="img photo" alt="">
+  <img src=" ${item.img} " class="img photo" alt=" ${item.title} ">
 </div>
 <!-- item info -->
 <div class="item-info">
   <header >
-<h5>${menuItem.title} </h5>
-<span class="price"> ${menuItem.price} </span>
+<h5> ${item.title} </h5>
+<span class="price"> ${item.price} </span>
   </header>
-  <p class="item-text"> ${menuItem.text} </p>
+  <p class="item-text">${item.text} </p>
 </div>
 </article>
-         `;
+          <!-- end of item 1 -->`;
   });
-  sectionCenter.innerHTML = showMenu.join("");
 
+  sectionCenter.innerHTML = showMenu.join("");
 }
 
+// up above in the map method we returned the changed structure of the individual item, then we accessed each item data from our array and joined it, placing each menu item inside the section center
+
+// the logic is that when we click a certain button we want to diplay a certain category, whether all of them, breakfast, lunch, dinner or our special category.
 
 
 
@@ -306,237 +285,162 @@ function showMenuItems (menuItems){
 
 
 
-///// These are the html values if you do not want to use the DOMContentLoaded event listener
-          <!-- item 2-->
- <article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-1.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>crust Hamburger</h5>
-<span class="price">$13.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 2 -->
 
-          <!-- item 3-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-2-Prawn-Pasta.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>Prawn Pasta</h5>
-<span class="price"> $15.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 3 -->
-          <!-- item 4-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-3-Bowl-Ice-Cream.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>bowl ice-cream</h5>
-<span class="price"> $18.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 4 -->
 
-       
-          <!-- item 5-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-4-Blueberries-Pancake.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>BlueBerry Pancake</h5>
-<span class="price"> $13.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 5 -->
- 
-          <!-- item 6-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-6-Egg-lavana.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>Egg lavana</h5>
-<span class="price"> $19.99 </span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 6 -->
-          <!-- item 7-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-7-Pork-Pizza-Lunch.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>Pork pizza</h5>
-<span class="price"> $24.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 7 -->
 
-          <!-- item 8-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-8-Pumpkin-soup-Lunch.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>pumpkin soup</h5>
-<span class="price"> $19.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 8 -->
-          <!-- item 9-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-9-Curry-Food-Lunch.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>curry food</h5>
-<span class="price"> $21.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 9 -->
-          <!-- item 10-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-10-Ramen-Soup-Lunch.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>Ramen soup</h5>
-<span class="price"> $24.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 10 -->
-          <!-- item 11-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-11-Roasted-Steak-Lunch.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>Roasted Steak</h5>
-<span class="price"> $34.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 11 -->
-          <!-- item 12-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-12-Gellato-Pineaple-specials.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>gellato pineaple</h5>
-<span class="price"> $17.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 12 -->
-          <!-- item 13-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-13-Mango-Nature-specials.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>Mango Nature</h5>
-<span class="price"> $15.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 13 -->
-          <!-- item 14-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-14-Le-Tropicales-specials.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>le tropicales</h5>
-<span class="price"> $25.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 14 -->
-          <!-- item 15-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/Dish-15-Kagyana-Strapatsada-dinner.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>Kagyana-Strapatsada</h5>
-<span class="price"> $25.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 15 -->
-          <!-- item 16-->
-<article class="menu-item">
-<div class="menu-img">
-  <img src="./images/dish-16-Salad-dinner.jpg" class="img photo" alt="">
-</div>
-<!-- item info -->
-<div class="item-info">
-  <header >
-<h5>Salad</h5>
-<span class="price"> $9.99</span>
-  </header>
-  <p class="item-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.</p>
-</div>
-</article>
-          <!-- end of item 16-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
