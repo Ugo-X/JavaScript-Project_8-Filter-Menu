@@ -9,6 +9,7 @@
 
 html {
   font-size: 100%;
+  scroll-behavior: smooth;
 } /*16px*/
 
 :root {
@@ -358,12 +359,15 @@ header h5 {
 }
 
 .top {
-  margin-bottom: 5rem;
   background: var(--clr-gold);
   position: fixed;
   right: 2rem;
-  top: 15rem;
+  bottom: 2rem;
 transition: var(--transition);
+visibility: hidden;
+}
+.show-btn{
+  visibility: visible;
 }
 
 

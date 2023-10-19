@@ -1,4 +1,3 @@
-
 const menu = [
   {
     id: 1,
@@ -130,29 +129,16 @@ const menu = [
     text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus tempora eveniet, rem asperiores eligendi magnam recusandae autem unde a suscipit.",
   },
 ];
-
-
 const sectionCenter = document.querySelector(".section-center");
 const btnContainer = document.querySelector(".btn-container");
-
-
-
 
 // load Items
 window.addEventListener("DOMContentLoaded", function (item) {
   showMenuItems(menu);
-showMenuBtns()
- 
+  showMenuBtns();
 });
 
-
-
-
-
-
-
-
-function showMenuBtns(){
+function showMenuBtns() {
   // selecting our unique categories
   const categories = menu.reduce(
     function (acc, currItem) {
@@ -195,7 +181,6 @@ function showMenuBtns(){
   });
 }
 
-
 // General function
 function showMenuItems(menuItems) {
   let showMenu = menuItems.map(function (item) {
@@ -219,3 +204,30 @@ function showMenuItems(menuItems) {
   sectionCenter.innerHTML = showMenu.join("");
 }
 
+
+const topBtn = document.querySelector('.top')
+
+
+window.addEventListener('scroll', function(){
+  const pageHeight = window.pageYOffset;
+if (pageHeight > 2000) {
+  topBtn.classList.add('show-btn')
+}
+else{
+  topBtn.classList.remove('show-btn');
+} 
+
+})
+
+topBtn.addEventListener('click', function(evt){
+  const one = evt.currentTarget
+  evt.preventDefault()
+  const id = one.getAttribute('href').slice(1)
+  console.log(id);
+  const element = document.getElementById(id)
+  let position = element.offsetTop
+  window.scrollTo({
+    left:0,
+    top:position,
+  })
+})

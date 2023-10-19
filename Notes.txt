@@ -294,7 +294,24 @@ function showMenuItems(menuItems) {
 
 
 
+const btns = document.querySelectorAll(".filter-btn");
 
+
+btns.forEach(function (btn) {
+  btn.addEventListener("click", function (evt) {
+    const category = evt.currentTarget.dataset.id;
+    const menuCategory = menu.filter(function (item) {
+      if (item.category === category) {
+        return item;
+      }
+    });
+    if (category === "all") {
+      return showMenuItems(menu);
+    } else {
+      showMenuItems(menuCategory);
+    }
+  });
+});
 
 
 
