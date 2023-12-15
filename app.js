@@ -166,7 +166,7 @@ function showMenuBtns() {
       const category = evt.currentTarget.dataset.id;
 
       const menuCategory = menu.filter(function (menuItem) {
-        // so here we want to say that if the category (whether breakfast, lunch, dinner etc ) is contained in our menuItem category then we will return that menuItem
+        // so here we want to say that if the menuItem category (whether breakfast, lunch, dinner etc ) is a member of our category being toggled then we will return that menuItem
         if (menuItem.category === category) {
           return menuItem;
         }
@@ -222,6 +222,7 @@ else{
 topBtn.addEventListener('click', function(evt){
   const one = evt.currentTarget
   evt.preventDefault()
+  // from the scroll project
   const id = one.getAttribute('href').slice(1)
   console.log(id);
   const element = document.getElementById(id)
